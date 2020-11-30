@@ -13,6 +13,7 @@ import com.example.litetodo.data.entity.NotesAdapter
 import com.example.litetodo.ui.base.BaseActivity
 import com.example.litetodo.ui.note.NoteActivity
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : BaseActivity<List<Note>?, MainViewState>() {
 
@@ -25,10 +26,9 @@ class MainActivity : BaseActivity<List<Note>?, MainViewState>() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val rvNotes = findViewById<RecyclerView>(R.id.rv_notes)
+        val rvNotes = rv_notes
 
         setSupportActionBar(findViewById(R.id.toolbar))
-
 
         rvNotes.layoutManager =
             GridLayoutManager(this, 2)
