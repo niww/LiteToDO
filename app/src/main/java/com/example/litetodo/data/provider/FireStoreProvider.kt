@@ -14,7 +14,7 @@ class FireStoreProvider : RemoteDataProvider {
 
     }
 
-    private val store:FirebaseFirestore = FirebaseFirestore.getInstance()
+    private val store: FirebaseFirestore = FirebaseFirestore.getInstance()
     private val noteReference = store.collection(NOTES_COLLECTION)
 
 
