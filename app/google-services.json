@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "98083701950",
+    "firebase_url": "https://litetodo-80a6d.firebaseio.com",
+    "project_id": "litetodo-80a6d",
+    "storage_bucket": "litetodo-80a6d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:98083701950:android:5df62fb477e99bf21b4aef",
+        "android_client_info": {
+          "package_name": "com.example.litetodo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "98083701950-anopnbqoa1fr6582pt11nn1cstpebu2n.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.litetodo",
+            "certificate_hash": "ad963562c979591c1a06ce3b3329ecbfd29e07df"
+          }
+        },
+        {
+          "client_id": "98083701950-t9bk7st6ihm6ka7rmutn7u8msvj5905h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAtttlwVRxqW5mvoTUQT6eL9QPY5uk5XIU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "98083701950-t9bk7st6ihm6ka7rmutn7u8msvj5905h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

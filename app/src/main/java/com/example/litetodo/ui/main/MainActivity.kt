@@ -3,17 +3,23 @@ package com.example.litetodo.ui.main
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.litetodo.R
+import com.example.litetodo.data.entity.Note
 import com.example.litetodo.data.entity.NotesAdapter
-import com.example.litetodo.ui.main.note.NoteActivity
+import com.example.litetodo.ui.base.BaseActivity
+import com.example.litetodo.ui.note.NoteActivity
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity<List<Note>?, MainViewState>() {
 
-    lateinit var viewModel: MainViewModel
+    override val viewModel: MainViewModel by lazy {
+        ViewModelProvider(this).get(MainViewModel::class.java)
+    }
+    override val layoutRes: Int = R.layout.activity_main
     lateinit var adapter: NotesAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,24 +29,23 @@ class MainActivity : AppCompatActivity() {
 
         setSupportActionBar(findViewById(R.id.toolbar))
 
-        viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
 
         rvNotes.layoutManager =
             GridLayoutManager(this, 2)
 
         adapter = NotesAdapter{note ->
-            NoteActivity.start(this, note)
+            NoteActivity.start(this, note.id)
         }
         rvNotes.adapter = adapter
 
-        viewModel.viewState().observe(this, Observer {
-            it?.let {
-                adapter.notes = it.notes
-            }
-        })
-
         findViewById<FloatingActionButton>(R.id.fab).setOnClickListener {
             NoteActivity.start(this)
+        }
+    }
+
+    override fun renderData(data: List<Note>?) {
+        data?.let {
+            adapter.notes = it
         }
     }
 
